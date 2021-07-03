@@ -1,7 +1,14 @@
-
+import ListOfNotes from './components/ListOfNotes'
 function App() {
   return (
-    <h1>My react app</h1>
+    <section>
+      <form>
+        <input type='text' placeholder='title'/>
+        <textarea placeholder='Write your note'/>
+        <button>Create note</button>
+      </form>
+      <ListOfNotes/>
+    </section>
   );
 }
 

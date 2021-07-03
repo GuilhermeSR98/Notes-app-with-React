@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import NoteCard from "./NoteCard";
 
-export default class ListOfNotes extends Component{
-    render(){
-        return (
-            <ul>
+class ListOfNotes extends Component {
+  render() {
+    return (
+      <ul>
         <li>
-          <section>
-            <header>
-              <h3>Title</h3>
-            </header>
-            <p>Write your note</p>
-          </section>
+          <NoteCard />
+        </li>
+        <li>
+          <NoteCard />
+        </li>
+        <li>
+          <NoteCard />
         </li>
       </ul>
-        );
-    }
+    );
+  }
 }
+export default ListOfNotes;

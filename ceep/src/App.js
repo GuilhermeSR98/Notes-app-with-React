@@ -1,5 +1,5 @@
 import { Component } from "react";
-import ListOfNotes from "./components/ListOfNotes";
+import ListOfNotes from "./components/ListOfNotes/ListOfNotes";
 import RegistrationForm from "./components/RegistrationForm";
 class App extends Component {
   render() {

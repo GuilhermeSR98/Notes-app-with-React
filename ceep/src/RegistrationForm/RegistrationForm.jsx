@@ -24,13 +24,13 @@ class RegistrationForm extends Component {
       <form className="registration-form" onSubmit={this.createNote.bind(this)}>
         <input
           type="text"
-          placeholder="title"
+          placeholder="Title"
           className="registration-form_input"
           onChange={this.handleTitleChange.bind(this)}
         />
         <textarea
           rows={15}
-          placeholder="Write your note"
+          placeholder="Write your note here..."
           className="registration-form_input"
           onChange={this.handletextChange.bind(this)}
         />

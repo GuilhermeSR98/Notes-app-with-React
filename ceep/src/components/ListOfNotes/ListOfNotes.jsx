@@ -5,10 +5,10 @@ import './style.css'
 class ListOfNotes extends Component {
   render() {
     return (
-      <ul className = 'list-notes'>
+      <ul className = 'notes-list'>
         {Array.of("Job", "Studies", "Job").map((category, index) => {
           return (
-            <li className = 'list-notes_item' key={index}>
+            <li className = 'notes-list_item' key={index}>
               <div>{category}</div>
               <NoteCard />
             </li>

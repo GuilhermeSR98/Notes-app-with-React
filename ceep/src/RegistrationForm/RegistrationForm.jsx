@@ -5,7 +5,7 @@ class RegistrationForm extends Component {
     return (
       <form>
         <input type="text" placeholder="title" />
-        <textarea placeholder="Write your note" />
+        <textarea rows={15} placeholder="Write your note" />
         <button>Create note</button>
       </form>
     );

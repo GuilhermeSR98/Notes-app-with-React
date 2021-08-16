@@ -1,15 +1,18 @@
 import { Component } from "react";
 import ListOfNotes from "./components/ListOfNotes/ListOfNotes";
-import RegistrationForm from "./components/RegistrationForm";
+import RegistrationForm from "./RegistrationForm/RegistrationForm";
+import "./assets/App.css";
+import "./assets/index.css";
+
 class App extends Component {
   render() {
     return (
-      <section>
+      <section className="content">
         <RegistrationForm />
         <ListOfNotes />
       </section>
     );
   }
 }
-
+    
 export default App;

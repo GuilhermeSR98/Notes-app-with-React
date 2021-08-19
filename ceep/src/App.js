@@ -10,7 +10,13 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
+      category: []
     };
+  }
+  addCategory(categoryName){
+    const newCategory = [...this.state.category, categoryName]
+    const newState = {...this.state, category:newCategory}
+    this.setState(newState)
   }
   createNote(title, text) {
     const newNote = { title, text };
@@ -29,8 +35,8 @@ class App extends Component {
     return (
       <section className="content">
         <RegistrationForm createNote={this.createNote.bind(this)} />
-        <main>
-          <CategoryList>
+        <main className="main-content">
+          <CategoryList addCategory={this.addCategory.bind(this)} category={this.state.category}>
             <ListOfNotes
               notes={this.state.notes}
               deleteNote={this.deleteNote.bind(this)}

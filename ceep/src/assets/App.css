@@ -1,7 +1,9 @@
 .content {
   display: flex;
 }
-
+.main-content{
+  flex-grow: 3;
+}
 :root {
   --primary: #58a4b0;
   --secondary: #373f51;

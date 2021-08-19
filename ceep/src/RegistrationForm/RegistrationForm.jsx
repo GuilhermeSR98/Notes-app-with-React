@@ -22,6 +22,11 @@ class RegistrationForm extends Component {
   render() {
     return (
       <form className="registration-form" onSubmit={this.createNote.bind(this)}>
+        <select className="registration-form_input">
+          {this.props.category.map((category) => {
+            return <option>{category}</option>
+          })}
+        </select>
         <input
           type="text"
           placeholder="Title"

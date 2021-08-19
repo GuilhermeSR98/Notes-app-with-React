@@ -34,7 +34,7 @@ class App extends Component {
   render() {
     return (
       <section className="content">
-        <RegistrationForm createNote={this.createNote.bind(this)} />
+        <RegistrationForm createNote={this.createNote.bind(this)} category={this.state.category} />
         <main className="main-content">
           <CategoryList addCategory={this.addCategory.bind(this)} category={this.state.category}>
             <ListOfNotes

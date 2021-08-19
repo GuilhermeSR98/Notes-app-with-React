@@ -1,6 +1,7 @@
 import { Component } from "react";
 import ListOfNotes from "./components/ListOfNotes/ListOfNotes";
 import RegistrationForm from "./RegistrationForm/RegistrationForm";
+import CategoryList from "./components/CategoryList/CategoryList";
 import "./assets/App.css";
 import "./assets/index.css";
 
@@ -28,10 +29,14 @@ class App extends Component {
     return (
       <section className="content">
         <RegistrationForm createNote={this.createNote.bind(this)} />
-        <ListOfNotes
-          notes={this.state.notes}
-          deleteNote={this.deleteNote.bind(this)}
-        />
+        <main>
+          <CategoryList>
+            <ListOfNotes
+              notes={this.state.notes}
+              deleteNote={this.deleteNote.bind(this)}
+            />
+          </CategoryList>
+        </main>
       </section>
     );
   }

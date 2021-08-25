@@ -2,50 +2,32 @@ import { Component } from "react";
 import ListOfNotes from "./components/ListOfNotes/ListOfNotes";
 import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
 import CategoryList from "./components/CategoryList/CategoryList";
+import Category from "./data/Category";
+import ArrayOfNotes from "./data/ArrayOfNotes";
 import "./assets/App.css";
 import "./assets/index.css";
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      notes: [],
-      category: [],
-    };
-  }
-  addCategory(categoryName) {
-    const newCategory = [...this.state.category, categoryName];
-    const newState = { ...this.state, category: newCategory };
-    this.setState(newState);
-  }
-  createNote(title, text, category) {
-    const newNote = { title, text, category };
-    const newNotesArray = [...this.state.notes, newNote];
-    const newState = {
-      notes: newNotesArray,
-    };
-    this.setState(newState);
-  }
-  deleteNote(index) {
-    let notesArray = this.state.notes;
-    notesArray.splice(index, 1);
-    this.setState({ notes: notesArray });
+    this.category = new Category();
+    this.notes = new ArrayOfNotes();
   }
   render() {
     return (
       <section className="content">
         <RegistrationForm
-          createNote={this.createNote.bind(this)}
-          category={this.state.category}
+          category={this.category.category}
+          createNote={this.notes.createNote}
         />
         <main className="main-content">
           <CategoryList
-            addCategory={this.addCategory.bind(this)}
-            category={this.state.category}
+            addCategory={this.category.addCategory}
+            category={this.category.category}
           />
           <ListOfNotes
-            notes={this.state.notes}
-            deleteNote={this.deleteNote.bind(this)}
+            deleteNote={this.notes.deleteNote}
+            notes={this.notes.notes}
           />
         </main>
       </section>

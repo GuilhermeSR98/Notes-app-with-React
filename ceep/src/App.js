@@ -1,6 +1,6 @@
 import { Component } from "react";
 import ListOfNotes from "./components/ListOfNotes/ListOfNotes";
-import RegistrationForm from "./RegistrationForm/RegistrationForm";
+import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
 import CategoryList from "./components/CategoryList/CategoryList";
 import "./assets/App.css";
 import "./assets/index.css";

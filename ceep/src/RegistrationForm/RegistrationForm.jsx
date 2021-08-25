@@ -5,6 +5,7 @@ class RegistrationForm extends Component {
     super(props);
     this.title = "";
     this.text = "";
+    this.category = "Without category";
   }
   handleTitleChange(event) {
     this.title = event.target.value;
@@ -14,15 +15,20 @@ class RegistrationForm extends Component {
     this.text = event.target.value;
     event.stopPropagation();
   }
+  handleCategoryChange(event){
+    this.category = event.target.value;
+    event.stopPropagation();
+  }
   createNote(event) {
-    this.props.createNote(this.title, this.text);
+    this.props.createNote(this.title, this.text, this.category);
     event.preventDefault();
     event.stopPropagation();
   }
   render() {
     return (
       <form className="registration-form" onSubmit={this.createNote.bind(this)}>
-        <select className="registration-form_input">
+        <select className="registration-form_input" onChange={this.handleCategoryChange.bind(this)}>
+          <option>Without Category</option>
           {this.props.category.map((category) => {
             return <option>{category}</option>
           })}

@@ -13,6 +13,7 @@ class ListOfNotes extends Component {
                 title={note.title}
                 text={note.text}
                 index={index}
+                category={note.category}
                 deleteNote={this.props.deleteNote}
               />
             </li>

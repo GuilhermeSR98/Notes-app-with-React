@@ -16,6 +16,7 @@ class NoteCard extends Component {
             alt="deleteSVG"
             onClick={this.handleDeleteNote.bind(this)}
           />
+          <h4>{this.props.category}</h4>
         </header>
         <p className="note-card_text">{this.props.text}</p>
       </section>

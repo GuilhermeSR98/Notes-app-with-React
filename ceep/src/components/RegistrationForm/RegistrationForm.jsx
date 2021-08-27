@@ -6,6 +6,13 @@ class RegistrationForm extends Component {
     this.title = "";
     this.text = "";
     this.category = "Without category";
+    this.state = { category: [] };
+  }
+  componentDidMount() {
+    this.props.category.register(this.newCategory.bind(this));
+  }
+  newCategory(category) {
+    this.setState({ ...this.state, category });
   }
   handleTitleChange(event) {
     this.title = event.target.value;
@@ -15,7 +22,7 @@ class RegistrationForm extends Component {
     this.text = event.target.value;
     event.stopPropagation();
   }
-  handleCategoryChange(event){
+  handleCategoryChange(event) {
     this.category = event.target.value;
     event.stopPropagation();
   }
@@ -27,10 +34,13 @@ class RegistrationForm extends Component {
   render() {
     return (
       <form className="registration-form" onSubmit={this.createNote.bind(this)}>
-        <select className="registration-form_input" onChange={this.handleCategoryChange.bind(this)}>
+        <select
+          className="registration-form_input"
+          onChange={this.handleCategoryChange.bind(this)}
+        >
           <option>Without Category</option>
-          {this.props.category.map((category) => {
-            return <option>{category}</option>
+          {this.state.category.map((category, index) => {
+            return <option key={index}>{category}</option>;
           })}
         </select>
         <input

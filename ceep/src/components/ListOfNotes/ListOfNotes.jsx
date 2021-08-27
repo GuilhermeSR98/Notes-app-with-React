@@ -3,10 +3,21 @@ import NoteCard from "../NoteCard/NoteCard";
 import "./style.css";
 
 class ListOfNotes extends Component {
+  constructor() {
+    super();
+    this.state = { notes: [] };
+  }
+  componentDidMount() {
+    this.props.notes.register(this.newNotes.bind(this));
+  }
+  newNotes(notes) {
+    this.setState({ ...this.state, notes });
+  }
+
   render() {
     return (
       <ul className="notes-list">
-        {this.props.notes.map((note, index) => {
+        {this.state.notes.map((note, index) => {
           return (
             <li className="notes-list_item" key={index}>
               <NoteCard

@@ -6,6 +6,9 @@ export default class Category {
   register(func) {
     this.enrolled.push(func);
   }
+  unregister(func) {
+    this.enrolled = this.enrolled.filter((f) => f !== func);
+  }
   notify() {
     this.enrolled.forEach((func) => {
       func(this.category);

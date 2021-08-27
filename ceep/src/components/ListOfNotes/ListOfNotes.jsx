@@ -6,9 +6,13 @@ class ListOfNotes extends Component {
   constructor() {
     super();
     this.state = { notes: [] };
+    this.newNotes = this.newNotes.bind(this);
   }
   componentDidMount() {
-    this.props.notes.register(this.newNotes.bind(this));
+    this.props.notes.register(this.newNotes);
+  }
+  componentWillUnmount() {
+    this.props.category.unregister(this.newNotes);
   }
   newNotes(notes) {
     this.setState({ ...this.state, notes });

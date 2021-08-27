@@ -8,12 +8,15 @@ export default class ArrayOfNotes {
     this.notes.push(newNote);
     this.notify();
   }
-  deleteNote(index){
-      this.notes.splice(index, 1);
-      this.notify();
+  deleteNote(index) {
+    this.notes.splice(index, 1);
+    this.notify();
   }
   register(func) {
     this.enrolled.push(func);
+  }
+  unregister(func) {
+    this.enrolled = this.enrolled.filter((f) => f !== func);
   }
   notify() {
     this.enrolled.forEach((func) => {
@@ -21,7 +24,6 @@ export default class ArrayOfNotes {
     });
   }
 }
-
 
 class Note {
   constructor(title, text, category) {

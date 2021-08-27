@@ -5,10 +5,14 @@ class CategoryList extends Component {
   constructor() {
     super();
     this.state = { category: [] };
+    this.newCategory = this.newCategory.bind(this);
   }
 
   componentDidMount() {
-    this.props.category.register(this.newCategory.bind(this));
+    this.props.category.register(this.newCategory);
+  }
+  componentWillUnmount() {
+    this.props.category.unregister(this.newCategory);
   }
   newCategory(category) {
     this.setState({ ...this.state, category });
